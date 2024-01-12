@@ -1,0 +1,59 @@
+﻿@model IEnumerable<doancsn.Models.User>
+
+@{
+    ViewData["Title"] = "UsersIndex";
+    Layout = "_Admin";
+}
+
+<div class="w3-container">
+    <h1>Tài khoản</h1>
+    <p>
+        <a asp-action="UsersCreate">Tạo mới tài khoản</a>
+    </p>
+    <table class="w3-table-all">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Role)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        <a asp-action="UsersEdit" asp-route-id="@item.Id">Sửa</a> |
+                        <a asp-action="UsersDetails" asp-route-id="@item.Id">Chi tiết</a> |
+                        <a asp-action="UsersDelete" asp-route-id="@item.Id">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

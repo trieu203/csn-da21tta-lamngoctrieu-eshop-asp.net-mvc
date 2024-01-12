@@ -1,0 +1,247 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Electro - HTML Ecommerce Template</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="/css/slick.css" />
+	<link type="text/css" rel="stylesheet" href="/css/slick-theme.css" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="/css/nouislider.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="/css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- HEADER -->
+	<header>
+		<!-- TOP HEADER -->
+		<div id="top-header">
+			<div class="container">
+				<ul class="header-links pull-left">
+					<li><a href="#"><i class="fa fa-phone"></i>039 8450 834</a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"></i> lngoctrieu203@gmail.com</a></li>
+					<li><a href="#"><i class="fa fa-map-marker"></i> 114 Kiên Thị Nhẫn Phường 7 TP Trà Vinh</a></li>
+				</ul>
+				<ul class="header-links pull-right">
+					@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+					{
+						<li><a href="/Admin/AdminIndex"><i class="fa fa-vnd"></i> Quản lí </a></li>
+					}
+					@if (User.Identity.IsAuthenticated)
+					{
+						<li><a href="/Users/Logout"><i class="fa fa-user-o"></i> Thoát</a></li>
+					}
+					else
+					{
+						<li><a href="/Users/Login"><i class="fa fa-user-o"></i> Đăng nhập</a></li>
+					}
+				</ul>
+			</div>
+		</div>
+		<!-- /TOP HEADER -->
+		<!-- MAIN HEADER -->
+		@await Component.InvokeAsync("Search")
+		<!-- /MAIN HEADER -->
+	</header>
+	<!-- /HEADER -->
+	<!-- NAVIGATION -->
+	@await Component.InvokeAsync("Navbar")
+	<!-- /NAVIGATION -->
+	<!-- BREADCRUMB -->
+	
+	<!-- /BREADCRUMB -->
+	<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- ASIDE -->
+				<div id="aside" class="col-md-3">
+					<!-- aside Widget -->
+					@await Component.InvokeAsync("Sidebar")
+					<!-- /aside Widget -->
+
+					<!-- aside Widget -->
+					<!-- /aside Widget -->
+					<!-- aside Widget -->
+					<!-- /aside Widget -->
+					<!-- aside Widget -->
+					<div class="aside">
+						<h3 class="aside-title">TOP BÁN CHẠY</h3>					
+
+						<div class="product-widget">
+							<div class="product-img">
+								<img src="./mg/product00.png" alt="">
+							</div>
+							<div class="product-body">
+								<p class="product-category">Sản phẩm</p>
+								<h3 class="product-name">
+									
+									<a href="#">Cà phê truyền thống</a>
+									
+								</h3>
+								<h4 class="product-price">10.000 VND<del class="product-old-price">10.000 VND</del></h4>
+							</div>
+						</div>
+
+						<div class="product-widget">
+							<div class="product-img">
+								<img src="./mg/product03.png" alt="">
+							</div>
+							<div class="product-body">
+								<p class="product-category">Sản phẩm</p>
+								<h3 class="product-name"><a href="#">Cà phê Latte</a></h3>
+								<h4 class="product-price">11.500 VND <del class="product-old-price">15.000 VND</del></h4>
+							</div>
+						</div>
+
+						<div class="product-widget">
+							<div class="product-img">
+								<img src="./mg/product05.png" alt="">
+							</div>
+							<div class="product-body">
+								<p class="product-category">Sản phẩm</p>
+								<h3 class="product-name"><a href="#">Cà phê Capuchino</a></h3>
+								<h4 class="product-price">15.000 <del class="product-old-price">15.000</del></h4>
+							</div>
+						</div>
+					</div>
+					<!-- /aside Widget -->
+				</div>
+				<!-- /ASIDE -->
+				<!-- STORE -->
+				<div id="store" class="col-md-9">
+					<!-- store top filter -->
+					
+					<!-- /store top filter -->
+					@RenderBody()
+					<!-- store products -->
+					
+					<!-- /store products -->
+					<!-- store bottom filter -->
+					
+					<!-- /store bottom filter -->
+				</div>
+				<!-- /STORE -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+	<!-- NEWSLETTER -->
+	
+	<!-- /NEWSLETTER -->
+	<!-- FOOTER -->
+	<footer id="footer">
+		<!-- top footer -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Địa chỉ quán</h3>
+							<p>Chào mừng đén với Cà Phê TNT</p>
+							<ul class="footer-links">
+								<li><a href="#"><i class="fa fa-map-marker"></i>114 Kiên Thị Nhẫm Phường 7 TP Trà Vinh</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i>039 845 0834</a></li>
+								<li><a href="#"><i class="fa fa-envelope-o"></i>lngoctrieu203@gmail.com</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Menu</h3>
+							<ul class="footer-links">
+								<li><a href="#">Cà phê truyền thống</a></li>
+								<li><a href="#">Cà phê Americano</a></li>
+								<li><a href="#">Cà phê Latte</a></li>
+								<li><a href="#">Cà phê Espresso</a></li>
+								<li><a href="#">Cà phê Capuchino</a></li>
+								<li><a href="#">Cà phê Mocha</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Thông tin quán</h3>
+							<ul class="footer-links">
+								<li><a href="#">Về chúng tôi</a></li>
+								<li><a href="#">Liên hệ</a></li>
+								<li><a href="#">Chính sách bảo mật</a></li>
+								<li><a href="#">Đơn đặt hàng và trả lại</a></li>
+								<li><a href="#">Điều khoản</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Dịch vụ</h3>
+							<ul class="footer-links">
+								<li><a href="#">Tài khoản </a></li>
+								<li><a href="#">Xem giỏ hàng</a></li>
+								<li><a href="#">Danh sách yêu thích</a></li>
+								<li><a href="#">Theo dõi đơn hàng</a></li>
+								<li><a href="#">Trợ giúp</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /top footer -->
+		<!-- bottom footer -->
+		
+		<!-- /bottom footer -->
+	</footer>
+	<!-- /FOOTER -->
+	<!-- jQuery Plugins -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/slick.min.js"></script>
+	<script src="/js/nouislider.min.js"></script>
+	<script src="/js/jquery.zoom.min.js"></script>
+	<script src="/js/main.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

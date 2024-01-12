@@ -1,0 +1,50 @@
+﻿
+@model doancsn.Models.Discount
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_Admin";
+}
+
+<h1>Chi tiết</h1>
+
+<div>
+    <h4>Khuyến mãi</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amout)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Amout)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartDay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndDay)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="DiscountsEdit" asp-route-id="@Model?.Id">Sửa</a> |
+    <a asp-action="DiscountsIndex">Quay lại</a>
+</div>

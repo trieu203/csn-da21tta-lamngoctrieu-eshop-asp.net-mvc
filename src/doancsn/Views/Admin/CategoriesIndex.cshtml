@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<doancsn.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Admin";
+}
+
+<h1>Danh mục sản phẩm</h1>
+
+<p>
+    <a asp-action="CategoriesCreate">Tạo mới sản phẩm</a>
+</p>
+
+<div class="w3-container">
+
+    <table class="w3-table-all">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="CategoriesEdit" asp-route-id="@item.Id">Sửa</a> |
+                        <a asp-action="CategoriesDetails" asp-route-id="@item.Id">Chi tiết</a> |
+                        <a asp-action="CategoriesDelete" asp-route-id="@item.Id">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+

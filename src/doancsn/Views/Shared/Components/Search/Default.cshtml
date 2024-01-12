@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<doancsn.Models.Category>
+<div id="header">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- LOGO -->
+			<div class="col-md-3">
+				<div class="header-logo">
+					<a href="#" class="logo">
+						<img src="./mg/logo.png" alt="">
+					</a>
+				</div>
+			</div>
+			<!-- /LOGO -->
+			<!-- SEARCH BAR -->
+			<div class="col-md-6">
+				<div class="header-search">
+					<form asp-controller="Products" asp-action="Index">
+						<select name="catid" class="input-select">
+							<option value="0">Tất cả</option>
+							@foreach (var item in Model) {
+								<option value="@item.Id">@item.Name</option>
+							}
+						</select>
+						<input class="input" name="keywords" placeholder="Tìm kiếm sản phẩm">
+						<button class="search-btn">Tìm </button>
+					</form>
+				</div>
+			</div>
+			<!-- /SEARCH BAR -->
+			<!-- ACCOUNT -->
+			<div class="col-md-3 clearfix">
+				<div class="header-ctn">
+					<!-- Wishlist -->
+					
+					<!-- /Wishlist -->
+					<!-- Cart -->
+					
+					<!-- /Cart -->
+					<!-- Menu Toogle -->
+					<div class="menu-toggle">
+						<a href="#">
+							<i class="fa fa-bars"></i>
+							<span>Menu</span>
+						</a>
+					</div>
+					<!-- /Menu Toogle -->
+				</div>
+			</div>
+			<!-- /ACCOUNT -->
+		</div>
+		<!-- row -->
+	</div>
+	<!-- container -->
+</div>
